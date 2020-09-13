@@ -1,0 +1,76 @@
+import Link from 'next/link';
+import Layout from '../components/Layout';
+import Gallery from '../components/Gallery';
+
+const images = [
+  '/portfolio/14.jpg',
+  '/portfolio/13.jpg',
+  '/portfolio/12.jpg',
+  '/portfolio/11.jpg',
+];
+
+const HomePage = () => {
+  return (
+    <Layout>
+      <div className='cover'>
+        <div className='hello'>
+          <h1>Hi, we're Photo Wiz Studios</h1>
+          <div>A fictional photography studio</div>
+          <Link href='/services'>
+            <a className='view-more'>What we do</a>
+          </Link>
+        </div>
+      </div>
+      <div className='latest-work'>
+        <h2>Latest Work</h2>
+        <Gallery images={images} />
+        <div className=''>
+          <Link href='/portfolio'>
+            <a className='view-more'>View All</a>
+          </Link>
+        </div>
+      </div>
+      <style jsx>{`
+        .cover {
+          position: relative;
+          min-height: 600px;
+          background: transparent url(/cover.jpg) no-repeat center center;
+          background-size: cover;
+        }
+        .hello {
+          position: absolute;
+          top: 250px;
+          left: 350px;
+          background: #ffffff3d;
+          padding: 30px;
+          color: #fff;
+        }
+        .hello h1 {
+          margin: 0 0 10px 0;
+        }
+        a.view-more {
+          text-transform: uppercase;
+          font-size: 16px;
+        }
+        .latest-work {
+          text-align: center;
+          padding: 30px 0;
+          margin-bottom: 60px;
+        }
+        @media (max-width: 480px) {
+          .hello {
+            left: 30px;
+            right: 30px;
+            font-size: 18px;
+            padding: 20px;
+          }
+          h1 {
+            font-size: 28px;
+          }
+        }
+      `}</style>
+    </Layout>
+  );
+};
+
+export default HomePage;
